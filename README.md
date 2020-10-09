@@ -1,6 +1,6 @@
-# Snapshot
+# Stampers
 
-Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results. 
+Stampers is an off-chain gasless multi-governance client with easy to verify and hard to contest results. 
 
 **[Documentation](https://docs.snapshot.page)**
 
