@@ -1,7 +1,7 @@
 {
-  "name": "snapshot",
+  "name": "stampers",
   "version": "0.1.2",
-  "repository": "balancer-labs/snapshot",
+  "repository": "Proposal-Stampers/stampers",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,8 +9,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@bonustrack/lock": "github:bonustrack/lock#e1437a340b578a1e5a48f37f935578ecdb8b51c8",
-    "@bonustrack/snapshot-spaces": "github:bonustrack/snapshot-spaces#master",
     "@bonustrack/snapshot.js": "github:bonustrack/snapshot.js#master",
     "@ethersproject/abi": "^5.0.1",
     "@ethersproject/address": "^5.0.1",
@@ -21,6 +19,8 @@
     "@ethersproject/wallet": "^5.0.1",
     "@portis/web3": "2.0.0-beta.49",
     "@primer/css": "^14.4.0",
+    "@stampers/lock": "github:Proposal-Stampers/lock#conflux",
+    "@stampers/spaces": "github:Proposal-Stampers/spaces#master",
     "@vue/cli-plugin-babel": "^4.4.0",
     "@vue/cli-plugin-eslint": "^4.4.0",
     "@vue/cli-plugin-typescript": "^4.4.0",
@@ -33,6 +33,7 @@
     "eslint": "^6.7.2",
     "fortmatic": "^2.0.6",
     "frameguard": "^3.1.0",
+    "js-conflux-sdk": "^0.13.4",
     "json-to-graphql-query": "^2.0.0",
     "jsonexport": "^3.0.1",
     "lodash": "^4.17.15",

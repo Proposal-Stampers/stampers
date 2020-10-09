@@ -62,8 +62,8 @@
 <script>
 import { mapActions } from 'vuex';
 import orderBy from 'lodash/orderBy';
-import spotlight from '@bonustrack/snapshot-spaces/spaces/spotlight.json';
-import domains from '@bonustrack/snapshot-spaces/spaces/domains.json';
+import spotlight from '@stampers/spaces/spaces/spotlight.json';
+import domains from '@stampers/spaces/spaces/domains.json';
 import spaces from '@/spaces';
 
 export default {

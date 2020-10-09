@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import { getInstance } from '@bonustrack/lock/plugins/vue';
 import { Web3Provider } from '@ethersproject/providers';
+import { getInstance } from '@stampers/lock/plugins/vue';
 import { Contract } from '@ethersproject/contracts';
 import { getAddress } from '@ethersproject/address';
 import store from '@/store';
@@ -24,7 +24,7 @@ const state = {
   name: null,
   balances: {},
   blockNumber: 0,
-  network: config.networks['1']
+  network: config.networks['2']
 };
 
 const mutations = {
@@ -94,14 +94,14 @@ const mutations = {
 };
 
 const actions = {
-  login: async ({ commit, dispatch }, connector = 'injected') => {
+  login: async ({ commit, dispatch }, connector = 'conflux-portal') => {
     auth = getInstance();
     await auth.login(connector);
     if (auth.provider) {
       web3 = new Web3Provider(auth.provider);
       await dispatch('loadProvider');
     } else {
-      commit('HANDLE_CHAIN_CHANGED', 1);
+      commit('HANDLE_CHAIN_CHANGED', 2);
     }
   },
   logout: async ({ commit }) => {
@@ -143,7 +143,7 @@ const actions = {
     }
   },
   lookupAddress: async ({ commit }, address) => {
-    if (state.network.chainId !== 1) return;
+    if (state.network.chainId !== 2) return;
     try {
       // @ts-ignore
       const name = await getProvider(1).lookupAddress(address);
@@ -154,7 +154,7 @@ const actions = {
     }
   },
   resolveName: async ({ commit }, name) => {
-    if (state.network.chainId !== 1) return;
+    if (state.network.chainId !== 2) return;
     try {
       // @ts-ignore
       const address = await getProvider(1).resolveName(name);
