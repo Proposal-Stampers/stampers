@@ -2,7 +2,7 @@
   <UiModal :open="open" @close="$emit('close')">
     <h3 class="m-4 text-center">About</h3>
     <div class="text-center">
-      <a href="https://twitter.com/SnapshotLabs" target="_blank">
+      <!-- <a href="https://twitter.com/SnapshotLabs" target="_blank">
         <Icon size="32" name="twitter" class="mr-1 mx-2" />
       </a>
       <a href="https://discord.snapshot.page" target="_blank">
@@ -10,13 +10,13 @@
       </a>
       <a href="https://t.me/snapshotlabs" target="_blank">
         <Icon size="32" name="telegram" class="mr-1 mx-2" />
-      </a>
+      </a> -->
       <a :href="`https://github.com/${pkg.repository}`" target="_blank">
         <Icon size="32" name="github" class="mr-1 mx-2" />
       </a>
-      <a href="https://gitcoin.co/grants/1093/snapshot" target="_blank">
+      <!-- <a href="https://gitcoin.co/grants/1093/snapshot" target="_blank">
         <Icon size="32" name="loveit" class="mr-1 mx-2" />
-      </a>
+      </a> -->
     </div>
     <div class="m-4 p-4 border rounded-2 text-white">
       <div class="d-flex">
