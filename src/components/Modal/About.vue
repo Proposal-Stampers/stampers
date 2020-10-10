@@ -47,7 +47,7 @@
         {{ ipfsNode }}
       </div>
       <div class="d-flex">
-        <span v-text="'Hub'" class="flex-auto text-gray mr-1" />
+        <span v-text="'Relayer'" class="flex-auto text-gray mr-1" />
         {{ hubUrl }}
       </div>
     </div>
@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       pkg,
-      hubUrl: process.env.VUE_APP_HUB_URL,
+      hubUrl: `${process.env.VUE_APP_HUB_URL}/api`,
       ipfsNode: process.env.VUE_APP_IPFS_NODE
     };
   }
