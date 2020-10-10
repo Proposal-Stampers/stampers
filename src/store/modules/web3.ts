@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import { Web3Provider } from '@ethersproject/providers';
 import { getInstance } from '@stampers/lock/plugins/vue';
 import { Contract } from '@ethersproject/contracts';
 import { getAddress } from '@ethersproject/address';
@@ -11,7 +10,7 @@ import { formatUnits } from '@ethersproject/units';
 
 let wsProvider;
 let auth;
-let web3;
+let cfx;
 
 if (wsProvider) {
   wsProvider.on('block', blockNumber => {
@@ -98,7 +97,7 @@ const actions = {
     auth = getInstance();
     await auth.login(connector);
     if (auth.provider) {
-      web3 = new Web3Provider(auth.provider);
+      cfx = auth.provider;
       await dispatch('loadProvider');
     } else {
       commit('HANDLE_CHAIN_CHANGED', 2);
@@ -126,12 +125,8 @@ const actions = {
           commit('HANDLE_CLOSE');
         });
       }
-      const [network, accounts] = await Promise.all([
-        web3.getNetwork(),
-        web3.listAccounts()
-      ]);
-      commit('HANDLE_CHAIN_CHANGED', network.chainId);
-      const account = accounts.length > 0 ? accounts[0] : null;
+      commit('HANDLE_CHAIN_CHANGED', parseInt(cfx.chainId).toString());
+      const account = cfx.selectedAddress
       const name = await dispatch('lookupAddress', account);
       commit('LOAD_PROVIDER_SUCCESS', {
         account,
@@ -146,9 +141,10 @@ const actions = {
     if (state.network.chainId !== 2) return;
     try {
       // @ts-ignore
-      const name = await getProvider(1).lookupAddress(address);
-      commit('LOOKUP_ADDRESS_SUCCESS', name);
-      return name;
+      const provider = getProvider(2)
+      await provider.getBalance(address);
+      commit('LOOKUP_ADDRESS_SUCCESS', address);
+      return '';
     } catch (e) {
       return Promise.reject();
     }
@@ -157,9 +153,9 @@ const actions = {
     if (state.network.chainId !== 2) return;
     try {
       // @ts-ignore
-      const address = await getProvider(1).resolveName(name);
-      commit('RESOLVE_NAME_SUCCESS', address);
-      return address;
+      await getProvider(2).getBalance(name);
+      commit('RESOLVE_NAME_SUCCESS', name);
+      return name;
     } catch (e) {
       return Promise.reject();
     }
@@ -170,11 +166,11 @@ const actions = {
   ) => {
     commit('SEND_TRANSACTION_REQUEST');
     try {
-      const signer = web3.getSigner();
+      const signer = cfx.selectedAddress;
       const contract = new Contract(
         getAddress(contractAddress),
         abi[contractType],
-        web3
+        cfx
       );
       const contractWithSigner = contract.connect(signer);
       const overrides = {};
@@ -191,8 +187,19 @@ const actions = {
   signMessage: async ({ commit }, message) => {
     commit('SIGN_MESSAGE_REQUEST');
     try {
-      const signer = web3.getSigner();
-      const sig = await signer.signMessage(message);
+      const sig = await new Promise((resolve, reject) => {
+        cfx.sendAsync({
+          method: 'personal_sign',
+          params: [message, cfx.selectedAddress],
+          from: cfx.selectedAddress,
+        }, (err, result) => {
+          if (err) {
+            reject(err)
+            return
+          }
+          resolve(result.result)
+        })
+      })
       commit('SIGN_MESSAGE_SUCCESS');
       return sig;
     } catch (e) {
@@ -205,7 +212,7 @@ const actions = {
     try {
       const blockNumber: any = await getProvider(
         state.network.chainId
-      ).getBlockNumber();
+      ).getEpochNumber();
       commit('GET_BLOCK_SUCCESS', parseInt(blockNumber));
       return blockNumber;
     } catch (e) {
