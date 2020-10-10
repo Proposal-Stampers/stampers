@@ -86,7 +86,7 @@
                 v-model="form.snapshot"
                 type="number"
                 class="input width-full text-center"
-                placeholder="Snapshot epoch number"
+                placeholder="Epoch number for vote counting"
               />
             </UiButton>
           </div>

@@ -13,7 +13,7 @@
           {{ proposal.msg.payload.choices[selectedChoice - 1] }}
         </div>
         <div class="d-flex">
-          <span v-text="'Snapshot'" class="flex-auto text-gray mr-1" />
+          <span v-text="'Vote counting at'" class="flex-auto text-gray mr-1" />
           <a
             :href="_explorer(proposal.msg.payload.snapshot, 'block')"
             target="_blank"

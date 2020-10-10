@@ -116,9 +116,9 @@
               />
             </div>
             <div class="mb-1">
-              <b>Snapshot</b>
+              <b>Vote counting at</b>
               <a
-                :href="_explorer(payload.snapshot, 'block')"
+                :href="_explorer(payload.snapshot, 'epochsdetail')"
                 target="_blank"
                 class="float-right"
               >
