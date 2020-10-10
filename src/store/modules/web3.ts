@@ -97,6 +97,7 @@ const actions = {
     auth = getInstance();
     await auth.login(connector);
     if (auth.provider) {
+      window['cfx'] = auth.provider
       cfx = auth.provider;
       await dispatch('loadProvider');
     } else {

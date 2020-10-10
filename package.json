@@ -9,7 +9,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@bonustrack/snapshot.js": "github:bonustrack/snapshot.js#master",
     "@ethersproject/abi": "^5.0.1",
     "@ethersproject/address": "^5.0.1",
     "@ethersproject/constants": "^5.0.1",
@@ -21,6 +20,7 @@
     "@primer/css": "^14.4.0",
     "@stampers/lock": "github:Proposal-Stampers/lock#conflux",
     "@stampers/spaces": "github:Proposal-Stampers/spaces",
+    "@stampers/stampers.js": "github:Proposal-Stampers/stampers.js#conflux",
     "@vue/cli-plugin-babel": "^4.4.0",
     "@vue/cli-plugin-eslint": "^4.4.0",
     "@vue/cli-plugin-typescript": "^4.4.0",
@@ -33,7 +33,7 @@
     "eslint": "^6.7.2",
     "fortmatic": "^2.0.6",
     "frameguard": "^3.1.0",
-    "js-conflux-sdk": "^0.13.4",
+    "js-conflux-sdk": "^0.13.5",
     "json-to-graphql-query": "^2.0.0",
     "jsonexport": "^3.0.1",
     "lodash": "^4.17.15",

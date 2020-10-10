@@ -1,4 +1,4 @@
-import { getScores } from '@bonustrack/snapshot.js/src/utils';
+import { getScores } from '@stampers/stampers.js/src/utils';
 import client from '@/helpers/client';
 import ipfs from '@/helpers/ipfs';
 import getProvider from '@/helpers/provider';
@@ -113,7 +113,7 @@ const actions = {
       result.votes = votes;
       const { snapshot } = result.proposal.msg.payload;
       const blockTag =
-        snapshot > rootState.web3.blockNumber ? 'latest' : parseInt(snapshot);
+        snapshot > rootState.web3.blockNumber ? 'latest_state' : parseInt(snapshot);
       const scores: any = await getScores(
         payload.space.strategies,
         payload.space.chainId,
@@ -122,7 +122,6 @@ const actions = {
         // @ts-ignore
         blockTag
       );
-      console.log('Scores', scores);
       result.votes = Object.fromEntries(
         Object.entries(result.votes)
           .map((vote: any) => {
@@ -169,7 +168,7 @@ const actions = {
     commit('GET_POWER_REQUEST');
     try {
       const blockTag =
-        snapshot > rootState.web3.blockNumber ? 'latest' : parseInt(snapshot);
+        snapshot > rootState.web3.blockNumber ? 'latest_state' : parseInt(snapshot);
       let scores: any = await getScores(
         space.strategies,
         space.chainId,
