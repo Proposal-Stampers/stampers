@@ -3,14 +3,14 @@
     "name": "Conflux Test Network",
     "chainId": 1,
     "network": "testnet",
-    "rpcUrl": "http://testnet-jsonrpc.conflux-chain.org:12537",
+    "rpcUrl": "https://testnet-jsonrpc.conflux-chain.org:12537",
     "explorer": "https://testnet.confluxscan.io"
   },
   "2": {
     "name": "Conflux Main Network",
     "chainId": 2,
     "network": "oceanus",
-    "rpcUrl": "http://mainnet-jsonrpc.conflux-chain.org:12537",
+    "rpcUrl": "https://mainnet-jsonrpc.conflux-chain.org:12537",
     "explorer": "https://confluxscan.io"
   }
 }
