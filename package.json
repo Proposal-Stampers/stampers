@@ -3,10 +3,12 @@
   "version": "0.1.2",
   "repository": "Proposal-Stampers/stampers",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node index.js"
   },
   "dependencies": {
     "@ethersproject/abi": "^5.0.1",
@@ -31,6 +33,7 @@
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "eslint": "^6.7.2",
+    "express": "^4.17.1",
     "fortmatic": "^2.0.6",
     "frameguard": "^3.1.0",
     "js-conflux-sdk": "^0.13.5",
