@@ -97,7 +97,7 @@ const actions = {
     auth = getInstance();
     await auth.login(connector);
     if (auth.provider) {
-      window['cfx'] = auth.provider
+      window['cfx'] = auth.provider;
       cfx = auth.provider;
       await dispatch('loadProvider');
     } else {
@@ -127,7 +127,7 @@ const actions = {
         });
       }
       commit('HANDLE_CHAIN_CHANGED', parseInt(cfx.chainId).toString());
-      const account = cfx.selectedAddress
+      const account = cfx.selectedAddress;
       const name = await dispatch('lookupAddress', account);
       commit('LOAD_PROVIDER_SUCCESS', {
         account,
@@ -142,7 +142,7 @@ const actions = {
     if (state.network.chainId !== 2) return;
     try {
       // @ts-ignore
-      const provider = getProvider(2)
+      const provider = getProvider(2);
       await provider.getBalance(address);
       commit('LOOKUP_ADDRESS_SUCCESS', address);
       return '';
@@ -189,18 +189,21 @@ const actions = {
     commit('SIGN_MESSAGE_REQUEST');
     try {
       const sig = await new Promise((resolve, reject) => {
-        cfx.sendAsync({
-          method: 'personal_sign',
-          params: [message, cfx.selectedAddress],
-          from: cfx.selectedAddress,
-        }, (err, result) => {
-          if (err) {
-            reject(err)
-            return
+        cfx.sendAsync(
+          {
+            method: 'personal_sign',
+            params: [message, cfx.selectedAddress],
+            from: cfx.selectedAddress
+          },
+          (err, result) => {
+            if (err) {
+              reject(err);
+              return;
+            }
+            resolve(result.result);
           }
-          resolve(result.result)
-        })
-      })
+        );
+      });
       commit('SIGN_MESSAGE_SUCCESS');
       return sig;
     } catch (e) {

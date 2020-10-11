@@ -113,7 +113,9 @@ const actions = {
       result.votes = votes;
       const { snapshot } = result.proposal.msg.payload;
       const blockTag =
-        snapshot > rootState.web3.blockNumber ? 'latest_state' : parseInt(snapshot);
+        snapshot > rootState.web3.blockNumber
+          ? 'latest_state'
+          : parseInt(snapshot);
       const scores: any = await getScores(
         payload.space.strategies,
         payload.space.chainId,
@@ -168,7 +170,9 @@ const actions = {
     commit('GET_POWER_REQUEST');
     try {
       const blockTag =
-        snapshot > rootState.web3.blockNumber ? 'latest_state' : parseInt(snapshot);
+        snapshot > rootState.web3.blockNumber
+          ? 'latest_state'
+          : parseInt(snapshot);
       let scores: any = await getScores(
         space.strategies,
         space.chainId,
