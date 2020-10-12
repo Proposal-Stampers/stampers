@@ -13,7 +13,7 @@
           <UiButton class="button-outline width-full v-align-middle">
             <img
               :src="
-                `https://raw.githubusercontent.com/Proposal-Stampers/lock/conflux/connectors/assets/${connector.id}.png`
+                `https://assets.stampers.app/lock/conflux/connectors/assets/${connector.id}.png`
               "
               height="28"
               width="28"

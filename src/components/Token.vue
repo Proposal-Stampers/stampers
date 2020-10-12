@@ -19,7 +19,7 @@ export default {
           ? 'space'
           : `logo${this.symbolIndex}`
         : 'logo';
-      return `https://raw.githubusercontent.com/Proposal-Stampers/spaces/master/spaces/${this.space}/${file}.png`;
+      return `https://assets.stampers.app/spaces/master/spaces/${this.space}/${file}.png`;
     }
   }
 };
