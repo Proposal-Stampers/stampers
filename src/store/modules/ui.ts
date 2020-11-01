@@ -20,7 +20,7 @@ const actions = {
     if (connector) {
       await dispatch('login', connector);
     } else {
-      commit('HANDLE_CHAIN_CHANGED', 2);
+      commit('HANDLE_CHAIN_CHANGED', 1029);
     }
     await dispatch('getBlockNumber');
     commit('SET', { loading: false, init: true });

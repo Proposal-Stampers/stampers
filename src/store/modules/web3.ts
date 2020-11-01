@@ -23,7 +23,7 @@ const state = {
   name: null,
   balances: {},
   blockNumber: 0,
-  network: config.networks['2']
+  network: config.networks['1029']
 };
 
 const mutations = {
@@ -101,7 +101,7 @@ const actions = {
       cfx = auth.provider;
       await dispatch('loadProvider');
     } else {
-      commit('HANDLE_CHAIN_CHANGED', 2);
+      commit('HANDLE_CHAIN_CHANGED', 1029);
     }
   },
   logout: async ({ commit }) => {
@@ -139,10 +139,10 @@ const actions = {
     }
   },
   lookupAddress: async ({ commit }, address) => {
-    if (state.network.chainId !== 2) return;
+    if (state.network.chainId !== 1029) return;
     try {
       // @ts-ignore
-      const provider = getProvider(2);
+      const provider = getProvider(1029);
       await provider.getBalance(address);
       commit('LOOKUP_ADDRESS_SUCCESS', address);
       return '';
@@ -151,10 +151,10 @@ const actions = {
     }
   },
   resolveName: async ({ commit }, name) => {
-    if (state.network.chainId !== 2) return;
+    if (state.network.chainId !== 1029) return;
     try {
       // @ts-ignore
-      await getProvider(2).getBalance(name);
+      await getProvider(1029).getBalance(name);
       commit('RESOLVE_NAME_SUCCESS', name);
       return name;
     } catch (e) {

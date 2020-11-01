@@ -8,8 +8,8 @@
   },
   "1029": {
     "name": "Conflux Main Network",
-    "chainId": 2,
-    "network": "oceanus",
+    "chainId": 1029,
+    "network": "tethys",
     "rpcUrl": "https://wallet-main.confluxrpc.org",
     "explorer": "https://confluxscan.io"
   }
