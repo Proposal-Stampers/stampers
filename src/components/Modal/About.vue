@@ -34,7 +34,7 @@
       <div class="d-flex">
         <span v-text="'Epoch number'" class="flex-auto text-gray mr-1" />
         <a
-          :href="_explorer(web3.blockNumber, 'epochsdetail')"
+          :href="_explorer(web3.blockNumber, 'epoch')"
           target="_blank"
           class="float-right"
         >

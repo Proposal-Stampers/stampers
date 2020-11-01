@@ -118,7 +118,7 @@
             <div class="mb-1">
               <b>Vote counting at</b>
               <a
-                :href="_explorer(payload.snapshot, 'epochsdetail')"
+                :href="_explorer(payload.snapshot, 'epoch')"
                 target="_blank"
                 class="float-right"
               >
