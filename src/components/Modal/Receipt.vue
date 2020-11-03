@@ -17,7 +17,7 @@
         </a>
       </div>
     </div>
-    <div class="m-4">
+    <!-- <div class="m-4">
       <a
         href="https://mycrypto.com/sign-and-verify-message/verify"
         target="_blank"
@@ -28,7 +28,7 @@
           <Icon name="external-link" class="ml-1" />
         </UiButton>
       </a>
-    </div>
+    </div> -->
   </UiModal>
 </template>
 
