@@ -179,7 +179,11 @@ export default {
       return spaces[this.key];
     },
     payload() {
-      return this.proposal.msg.payload;
+      const payload = this.proposal.msg.payload;
+      if (payload.body) {
+        payload.body = payload.body.replace('maintaining the Internet', 'maintaining the Conflux Network')
+      }
+      return payload;
     },
     ts() {
       return (Date.now() / 1e3).toFixed();
