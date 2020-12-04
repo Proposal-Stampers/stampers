@@ -44,7 +44,15 @@
               v-text="choice"
               @click="selectedChoice = i + 1"
               class="d-block width-full mb-2"
-              :class="selectedChoice === i + 1 && 'button--active'"
+              :class="
+                [
+                  selectedChoice === i + 1 ? 'button--active' : '',
+                  proposal.ipfsHash ===
+                  'QmSUEn5Q7TofeJvVpjviki88YUvdSpDQze25s47y5JjPtZ'
+                    ? 'button-large'
+                    : ''
+                ].join(' ')
+              "
             />
           </div>
           <UiButton
