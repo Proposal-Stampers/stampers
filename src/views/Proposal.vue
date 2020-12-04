@@ -190,6 +190,7 @@ export default {
       const payload = this.proposal.msg.payload;
       if (payload.body) {
         payload.body = payload.body.replace('maintaining the Internet', 'maintaining the Conflux Network')
+        payload.body = payload.body.replace('https://forum.conflux.fun/t/topic/4303', 'https://forum.conflux.fun/t/topic/4304')
       }
       return payload;
     },
