@@ -190,8 +190,8 @@ export default {
       const payload = this.proposal.msg.payload;
       if (payload.body) {
         payload.body = payload.body.replace('maintaining the Internet', 'maintaining the Conflux Network')
-        if (proposal.ipfsHash === 'QmSUEn5Q7TofeJvVpjviki88YUvdSpDQze25s47y5JjPtZ') {
-          payload.body = payload.body.replace('https://forum.conflux.fun/t/topic/4303', 'https://forum.conflux.fun/t/topic/4043')
+        if (this.proposal.ipfsHash === 'QmSUEn5Q7TofeJvVpjviki88YUvdSpDQze25s47y5JjPtZ') {
+          payload.body = payload.body.replace('https://forum.conflux.fun/t/topic/4303', 'https://forum.conflux.fun/t/topic/4304')
         }
       }
       return payload;
