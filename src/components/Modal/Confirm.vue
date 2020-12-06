@@ -1,5 +1,5 @@
 <template>
-  <UiModal :open="open" v-if="open" @close="$emit('close')" class="d-flex">
+  <UiModal :open="open" v-if="open" @close="$emit('close')" class="d-flex overflow-auto">
     <form @submit.prevent="handleSubmit" class="d-flex flex-column flex-auto">
       <h3 class="m-4 mb-0 text-center">Confirm vote</h3>
       <h4 class="m-4 mb-0 text-center">
