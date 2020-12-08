@@ -111,6 +111,12 @@ const actions = {
       result.proposal = formatProposal(proposal);
       result.proposal.ipfsHash = payload.id;
       result.votes = votes;
+      if (
+        payload.id === 'QmZU7zBAWDLuAJNm39LSJh2TaZGPQj9y3YTteRqVemzLHq' ||
+        payload.id === 'Qma8JMJRt13kx7RbL5AG1Gq4wVwQyFZsa99UbggW6PNedV'
+      ) {
+        result.proposal.msg.payload.snapshot = '3385373';
+      }
       const { snapshot } = result.proposal.msg.payload;
       const blockTag =
         snapshot > rootState.web3.blockNumber
@@ -163,6 +169,7 @@ const actions = {
       commit('GET_PROPOSAL_SUCCESS');
       return result;
     } catch (e) {
+      console.warn(e)
       commit('GET_PROPOSAL_FAILURE', e);
     }
   },
