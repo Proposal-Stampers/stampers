@@ -117,6 +117,12 @@ const actions = {
       ) {
         result.proposal.msg.payload.snapshot = '3385373';
       }
+      if (
+        payload.id === 'QmSUEn5Q7TofeJvVpjviki88YUvdSpDQze25s47y5JjPtZ' ||
+        payload.id === 'QmbNhCSGLqgrNyjc6oLeNa2MpWkiAKiWifbWfJVdFnWLFJ'
+      ) {
+        result.proposal.msg.payload.snapshot = '3616716';
+      }
       const { snapshot } = result.proposal.msg.payload;
       const blockTag =
         snapshot > rootState.web3.blockNumber
