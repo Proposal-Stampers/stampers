@@ -3,14 +3,14 @@
     "name": "Conflux Test Network",
     "chainId": 1,
     "network": "testnet",
-    "rpcUrl": "https://wallet-test.confluxrpc.org",
+    "rpcUrl": "https://testnet-rpc.conflux-chain.org.cn/v2",
     "explorer": "https://testnet.confluxscan.io"
   },
   "1029": {
     "name": "Conflux Main Network",
     "chainId": 1029,
     "network": "tethys",
-    "rpcUrl": "https://wallet-main.confluxrpc.org",
+    "rpcUrl": "https://main.confluxrpc.org/v2",
     "explorer": "https://confluxscan.io"
   }
 }
