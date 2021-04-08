@@ -85,9 +85,10 @@ export default {
         'pending',
         'closed'
       ];
-      return this.space.showOnlyCore
-        ? states.filter(state => !['core', 'community'].includes(state))
-        : states;
+      return states;
+      // return this.space.showOnlyCore
+      //   ? states.filter(state => !['core', 'community'].includes(state))
+      //   : states;
     },
     totalProposals() {
       return Object.keys(this.proposals).length;
