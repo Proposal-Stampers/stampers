@@ -10,7 +10,7 @@
     "name": "Conflux Main Network",
     "chainId": 1029,
     "network": "tethys",
-    "rpcUrl": "https://main.confluxrpc.org/v2",
+    "rpcUrl": "https://mainnet-rpc.conflux-chain.org.cn/v2",
     "explorer": "https://confluxscan.io"
   }
 }
